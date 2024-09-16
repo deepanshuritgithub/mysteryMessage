@@ -26,7 +26,7 @@ import { ApiResponse } from "@/types/ApiResponse";
 
 
 
-export default function x() {
+export default function SignUp() {
 
   const [username , setUsername ]= useState('');
   //uske alwa agr username hai apke pass available , ya nahi hai uska ek message to aayegaa, jaise hm request bhjenge , backend oe to kuch ka kuch to aayega msg  , to hm esko ya boll dete hai Username msg 
