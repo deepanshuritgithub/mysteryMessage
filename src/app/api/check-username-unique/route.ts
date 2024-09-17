@@ -44,13 +44,13 @@ export async function GET(request: Request) { //app ke pass hogi request jo ki h
     // Check if username is missing in query parameters
     if (!queryParam.username) {
         return Response.json(
-          {
-            success: false,
-            message: "Username query parameter is required",
-          },
-          { status: 400 } // Bad request
+        {
+        success: false,
+        message: "Username query parameter is required",
+        },
+        { status: 400, headers: { 'Content-Type': 'application/json' }  } // Bad request
         );
-      }
+    }
         
         // console.log('Received query parameters:', queryParam);
         //thik hai ab query params to apke pass hai lekin esko validate kese kiya jaye username se , username query schema wala  
@@ -75,7 +75,7 @@ export async function GET(request: Request) { //app ke pass hogi request jo ki h
                     success: false,
                     message: usernameErrors?.length > 0 ? usernameErrors.join(', ') : 'Invalid query parameters'
                 },
-                { status: 400 } //bad request
+                { status: 400, headers: { 'Content-Type': 'application/json' } } //bad request
             )
         }
         
@@ -95,7 +95,7 @@ export async function GET(request: Request) { //app ke pass hogi request jo ki h
                     success: false,
                     message: 'Username is already taken',
                 },
-                { status: 400 }
+                { status: 400,headers: { 'Content-Type': 'application/json' }  }
             );
         }
         //agr kisi ne nahi liya hai to yahi response return krna hai 
@@ -104,7 +104,7 @@ export async function GET(request: Request) { //app ke pass hogi request jo ki h
                 success: true,
                 message: 'Username is unique'
             },
-            { status: 200}
+            { status: 200, headers: { 'Content-Type': 'application/json' } }
         )
 
 
@@ -115,7 +115,7 @@ export async function GET(request: Request) { //app ke pass hogi request jo ki h
             success: false,
             message: 'Error checking username',
             },
-            { status: 500 }
+            { status: 500,headers: { 'Content-Type': 'application/json' }  }
         );
     }
 }
