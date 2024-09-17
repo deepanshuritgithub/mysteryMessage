@@ -1,7 +1,6 @@
 {
     "functions": {
       "api/check-username-unique.ts": {
-        "runtime": "nodejs18.x",
         "maxDuration": 60
       }
     }
