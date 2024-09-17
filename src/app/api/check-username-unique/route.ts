@@ -37,8 +37,21 @@ export async function GET(request: Request) { //app ke pass hogi request jo ki h
         
         const queryParam = {
             username: searchParams.get('username'),//eske andar us method ka naam likh do 
-        };
+        }; 
 
+
+
+    // Check if username is missing in query parameters
+    if (!queryParam.username) {
+        return Response.json(
+          {
+            success: false,
+            message: "Username query parameter is required",
+          },
+          { status: 400 } // Bad request
+        );
+      }
+        
         // console.log('Received query parameters:', queryParam);
         //thik hai ab query params to apke pass hai lekin esko validate kese kiya jaye username se , username query schema wala  
         //validate with zod 
